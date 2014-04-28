@@ -1,0 +1,8 @@
+---
+layout: feature
+title: Release 1.5.2 now available!
+description: CQ 5.5 Compatibility Release
+date: 2014-04-24 10:39:29
+thumbnail: /images/default/thumbnail.png
+categories: news
+---
