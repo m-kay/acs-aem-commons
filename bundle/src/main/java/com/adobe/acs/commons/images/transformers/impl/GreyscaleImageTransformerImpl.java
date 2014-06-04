@@ -50,6 +50,7 @@ public class GreyscaleImageTransformerImpl implements ImageTransformer {
     public final Layer transform(final Layer layer, final ValueMap properties) {
         log.debug("Transforming with [ {} ]", TYPE);
 
+        layer.setLuminanceSystem(Layer.LINEAR);
         layer.grayscale();
 
         return layer;
