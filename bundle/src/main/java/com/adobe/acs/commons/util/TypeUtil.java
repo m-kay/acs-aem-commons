@@ -26,8 +26,8 @@ import org.apache.sling.api.wrappers.ValueMapDecorator;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.JSONObject;
 import org.joda.time.format.ISODateTimeFormat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import aQute.bnd.annotation.ProviderType;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,14 +38,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+@ProviderType
 public class TypeUtil {
-    private static final Logger log = LoggerFactory.getLogger(TypeUtil.class);
 
     private static final Pattern JSON_DATE = Pattern.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}[-+]{1}[0-9]{2}[:]{0,1}[0-9]{2}$");
-    private static final String REFERENCE = "jcr:reference:";
-    private static final String PATH = "jcr:path:";
-    private static final String NAME = "jcr:name:";
-    private static final String URI = "jcr:uri:";
 
     private TypeUtil() {
     }
@@ -84,6 +80,7 @@ public class TypeUtil {
      * @param klass
      * @return
      */
+    @SuppressWarnings("unchecked")
     public static <T> Map<String, T> toMap(JSONObject json, Class<T> klass) throws JSONException {
         final HashMap<String, T> map = new HashMap<String, T>();
         final List<?> keys = IteratorUtils.toList(json.keys());

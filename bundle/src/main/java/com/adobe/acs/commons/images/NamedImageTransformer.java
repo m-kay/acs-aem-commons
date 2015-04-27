@@ -20,11 +20,14 @@
 
 package com.adobe.acs.commons.images;
 
+import aQute.bnd.annotation.ProviderType;
+
 import com.day.image.Layer;
+import org.apache.sling.api.resource.ValueMap;
 
-import javax.jcr.RepositoryException;
-import java.io.IOException;
+import java.util.Map;
 
+@ProviderType
 public interface NamedImageTransformer {
     /**
      * The OSGi config property used to identify the named transform.
@@ -40,4 +43,9 @@ public interface NamedImageTransformer {
      * transform parameters) the layer unmodified
      */
     Layer transform(Layer layer);
+
+    /**
+     * @return the ImageTransforms types and their params for this Named Image Transform
+     */
+    Map<String, ValueMap> getImageTransforms();
 }

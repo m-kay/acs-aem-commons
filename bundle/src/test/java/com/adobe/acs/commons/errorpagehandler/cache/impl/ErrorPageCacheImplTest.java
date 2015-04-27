@@ -23,7 +23,6 @@ package com.adobe.acs.commons.errorpagehandler.cache.impl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -76,7 +75,7 @@ public class ErrorPageCacheImplTest {
 
     public void testGet() throws Exception {
         /**
-         * Implemented in PowerMoockErrorPageCacheImplTest
+         * Implemented in PowerMockErrorPageCacheImplTest
          *
          * Powermock was having problems running with @Spy'ed vars in this Test.
          */

@@ -20,19 +20,20 @@
 package com.adobe.acs.commons.util;
 
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import aQute.bnd.annotation.ProviderType;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@ProviderType
 public class CookieUtil {
-    private static final Logger log = LoggerFactory.getLogger(CookieUtil.class);
 
     private CookieUtil() {
     }

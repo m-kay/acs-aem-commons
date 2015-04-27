@@ -20,19 +20,20 @@
 
 package com.adobe.acs.commons.replication.dispatcher;
 
+import aQute.bnd.annotation.ProviderType;
+
 import com.day.cq.replication.Agent;
 import com.day.cq.replication.AgentConfig;
 import com.day.cq.replication.AgentFilter;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.ValueMap;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Replication Agent Filter used to identify Flush agents.
  */
+@ProviderType
 public class DispatcherFlushFilter implements AgentFilter {
-    private static final Logger log = LoggerFactory.getLogger(DispatcherFlushFilter.class);
 
     /**
      * All: All Enablied Dispatcher Flush Agents.

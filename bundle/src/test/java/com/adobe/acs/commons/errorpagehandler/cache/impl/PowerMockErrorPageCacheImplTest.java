@@ -29,9 +29,6 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
@@ -102,5 +99,21 @@ public class PowerMockErrorPageCacheImplTest {
         assertEquals(1, errorPageCache.getCacheEntriesCount());
 
         assertEquals("hello new world", data);
+    }
+
+
+    @Test
+    public void testGet_Null() throws Exception {
+        mockStatic(ResourceDataUtil.class);
+
+        SlingHttpServletRequest request = mock(SlingHttpServletRequest.class);
+        SlingHttpServletResponse response = mock(SlingHttpServletResponse.class);
+
+        when(ResourceDataUtil.getIncludeAsString("/content/world", request,
+                response)).thenReturn(null);
+
+        String data = errorPageCache.get("/content/world", request, response);
+
+        assertEquals("", data);
     }
 }
